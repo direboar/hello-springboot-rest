@@ -11,6 +11,7 @@ http://www.ne.jp/asahi/hishidama/home/tech/java/spring/boot/index.html
 
 ## Developer Tool
 - Developer　Toolを設定しないと、SpringBootの自動リスタートが動作しないので、設定が必須。
+
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-devtools
 
 - 自動リスタートが有効にならない問題
