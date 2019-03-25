@@ -14,7 +14,7 @@ public class GreetingController {
 
 	@RequestMapping("/greeting")
 	// @PostMapping("/greeting") //POSTに限定する場合
-	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World!!!") String name) {
+	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		String content = String.format(template, name);
 
 		// オブジェクトデータはJSONとしてHTTPレスポンスに直接書き込まれます。
