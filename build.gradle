@@ -1,0 +1,41 @@
+//プロダクトコードではなく、ビルドスクリプト( build.gradle )内で利用するプラグインや依存関係の定義については buildscript に定義します。
+buildscript {
+    //maven repositoryを設定
+    repositories {
+        mavenCentral()
+    }
+    //Spring Boot gradle plugin provides many convenient features:
+    //1.クラスパス上のすべてのjarを集めて、実行可能な単一の "über-jar"を構築します。これにより、サービスの実行と転送がより便利になります。
+    //2.mainメソッドが定義されているクラスを探します。
+    //3.Spring Bootの依存関係に一致するようにバージョン番号を設定する組み込みの依存関係リゾルバを提供します。
+    //https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/#getting-started これは読んだ方がよさそう。
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+//Spring Boot gradle pluginに指定する、SpringBootの実行可能JAR
+bootJar {
+    baseName = 'gs-rest-service'
+    version =  '0.1.0'
+}
+
+//ビルド時のmaven repository
+repositories {
+    mavenCentral()
+}
+
+//ソースコードのバージョン
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+//dependency
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
