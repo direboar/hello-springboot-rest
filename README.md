@@ -1,23 +1,23 @@
-# ŠT—v
-spring webmvc{spring boot‚ÅrestƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğì¬‚·‚éƒTƒ“ƒvƒ‹B
-ˆÈ‰º‚Ì“à—e‚ÌÊŒo‚©‚çn‚Ü‚èA‚»‚Ì‘¼•K—v‚È—v‘f‚ğ’Ç‰Á‚µ‚Ä‚¢‚­—\’èB
+# æ¦‚è¦
+spring webmvcï¼‹spring bootã§restã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä½œæˆã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã€‚
+ä»¥ä¸‹ã®å†…å®¹ã®å†™çµŒã‹ã‚‰å§‹ã¾ã‚Šã€ãã®ä»–å¿…è¦ãªè¦ç´ ã‚’è¿½åŠ ã—ã¦ã„ãäºˆå®šã€‚
 
 https://spring.io/guides/gs/rest-service/
 
-# ƒmƒEƒnƒEƒƒ‚
+# ãƒã‚¦ãƒã‚¦ãƒ¡ãƒ¢
 
-## hishidama‚³‚ñ‚ÌƒTƒCƒg
+## hishidamaã•ã‚“ã®ã‚µã‚¤ãƒˆ
 http://www.ne.jp/asahi/hishidama/home/tech/java/spring/boot/index.html
 
-##@Developer Tool
-1.Developer@Tool‚ğİ’è‚µ‚È‚¢‚ÆASpringBoot‚Ì©“®ƒŠƒXƒ^[ƒg‚ª“®ì‚µ‚È‚¢‚Ì‚ÅAİ’è‚ª•K{B
-  https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-devtools
+## Developer Tool
+- Developerã€€Toolã‚’è¨­å®šã—ãªã„ã¨ã€SpringBootã®è‡ªå‹•ãƒªã‚¹ã‚¿ãƒ¼ãƒˆãŒå‹•ä½œã—ãªã„ã®ã§ã€è¨­å®šãŒå¿…é ˆã€‚
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-devtools
 
-2.Developer@Tool‚ğİ’è‚µ‚½ê‡Aeclipse -> Às -> Spring Boot App‚Å“®‚©‚³‚È‚¢‚ÆA©“®ƒŠƒXƒ^[ƒg‚ª—LŒø‚É‚È‚ç‚È‚¢‚Ì‚Å’ˆÓ
-  (gradlew bootRun‚Å“®‚©‚·‚ÆAŠJ”­ƒ‚[ƒh‚Æ‚µ‚Ä”F¯‚³‚ê‚È‚¢‚ç‚µ‚¢j
+- Developerã€€Toolã‚’è¨­å®šã—ãŸå ´åˆã€eclipse -> å®Ÿè¡Œ -> Spring Boot Appã§å‹•ã‹ã•ãªã„ã¨ã€è‡ªå‹•ãƒªã‚¹ã‚¿ãƒ¼ãƒˆãŒæœ‰åŠ¹ã«ãªã‚‰ãªã„ã®ã§æ³¨æ„
 
-@@‚à‚µ‚­‚ÍAEclipse‚Ìƒrƒ‹ƒhƒpƒX‚Ìİ’è‚ğAgradle‚Ìƒrƒ‹ƒhƒpƒX‚É‡‚í‚¹‚éB
-@@https://qiita.com/miz21358/items/ae61ebdcbb9d8760e62b
-  https://www.kaitoy.xyz/2017/01/03/goslings-development-memo1-spring-boot/
+(gradlew bootRunã§å‹•ã‹ã™ã¨ã€é–‹ç™ºãƒ¢ãƒ¼ãƒ‰ã¨ã—ã¦èªè­˜ã•ã‚Œãªã„ã‚‰ã—ã„ï¼‰
+ã‚‚ã—ãã¯ã€Eclipseã®ãƒ“ãƒ«ãƒ‰ãƒ‘ã‚¹ã®è¨­å®šã‚’ã€gradleã®ãƒ“ãƒ«ãƒ‰ãƒ‘ã‚¹ã«åˆã‚ã›ã‚‹ã€‚
+https://qiita.com/miz21358/items/ae61ebdcbb9d8760e62b
+https://www.kaitoy.xyz/2017/01/03/goslings-development-memo1-spring-boot/
 
 
