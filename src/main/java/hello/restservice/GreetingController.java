@@ -1,4 +1,4 @@
-package hello;
+package hello.restservice;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -13,12 +13,12 @@ public class GreetingController {
 	private final AtomicLong counter = new AtomicLong();
 
 	@RequestMapping("/greeting")
-	// @PostMapping("/greeting") //POST‚ÉŒÀ’è‚·‚éê‡
+	// @PostMapping("/greeting") //POSTã«é™å®šã™ã‚‹å ´åˆ
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		String content = String.format(template, name);
 
-		// ƒIƒuƒWƒFƒNƒgƒf[ƒ^‚ÍJSON‚Æ‚µ‚ÄHTTPƒŒƒXƒ|ƒ“ƒX‚É’¼Ú‘‚«‚Ü‚ê‚Ü‚·B
-		// Default‚Å‚ÍJacksonBƒJƒXƒ^ƒ}ƒCƒY‚·‚éê‡‚ÍAMappingJackson2HttpMessageConverter‚ğ“ü‚ê‘Ö‚¦‚È‚¢‚Æƒ_ƒ‚©B
+		// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ‡ãƒ¼ã‚¿ã¯JSONã¨ã—ã¦HTTPãƒ¬ã‚¹ãƒãƒ³ã‚¹ã«ç›´æ¥æ›¸ãè¾¼ã¾ã‚Œã¾ã™ã€‚
+		// Defaultã§ã¯Jacksonã€‚ã‚«ã‚¹ã‚¿ãƒã‚¤ã‚ºã™ã‚‹å ´åˆã¯ã€MappingJackson2HttpMessageConverterã‚’å…¥ã‚Œæ›¿ãˆãªã„ã¨ãƒ€ãƒ¡ã‹ã€‚
 		return new Greeting(counter.incrementAndGet(), content);
 	}
 

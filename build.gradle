@@ -46,7 +46,15 @@ targetCompatibility = 1.8
 //dependency
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test'){
+        //juni4を除外
+        exclude group: 'junit' , module: 'junit'
+    }
+    //junit5
+    //https://mike-neck.hatenadiary.com/entry/2018/03/02/073000
+    testCompile ("org.junit.jupiter:junit-jupiter-api:5.1.0")
+    testRuntime ("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+    
     developmentOnly("org.springframework.boot:spring-boot-devtools") //開発時のみ有効。
 }
 
