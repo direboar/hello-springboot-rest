@@ -1,10 +1,52 @@
+//JAXBを実行して、Javaクラスを生成するタスク。
+task genJaxb {
+    group = "devtool"
+    description = "execute jaxb"
 
-//spring devtoolを開発中のみに適用するための設定。
+    ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
+    ext.classesDir = "${buildDir}/classes/jaxb"
+    ext.schema = "src/main/resources/countries.xsd"
+
+    outputs.dir classesDir
+
+    doLast() {
+        project.ant {
+            taskdef name: "xjc", classname: "com.sun.tools.xjc.XJCTask",
+                    classpath: configurations.jaxb.asPath
+            mkdir(dir: sourcesDir)
+            mkdir(dir: classesDir)
+
+            xjc(destdir: sourcesDir, schema: schema) {
+                arg(value: "-wsdl")
+                produces(dir: sourcesDir, includes: "**/*.java")
+            }
+
+            javac(destdir: classesDir, source: 1.6, target: 1.6, debug: true,
+                    debugLevel: "lines,vars,source",
+                    classpath: configurations.jaxb.asPath) {
+                src(path: sourcesDir)
+                include(name: "**/*.java")
+                include(name: "*.java")
+            }
+
+            copy(todir: classesDir) {
+                fileset(dir: sourcesDir, erroronmissingdir: false) {
+                    exclude(name: "**/*.java")
+                }
+            }
+        }
+    }
+}
+
 configurations {
+    //spring devtoolを開発中のみに適用するための設定。
 	developmentOnly
 	runtimeClasspath {
 		extendsFrom developmentOnly
 	}
+	
+	//SOAPのための設定
+	jaxb 
 }
 
 //プロダクトコードではなく、ビルドスクリプト( build.gradle )内で利用するプラグインや依存関係の定義については buildscript に定義します。
@@ -32,6 +74,9 @@ apply plugin: 'io.spring.dependency-management'
 bootJar {
     baseName = 'gs-rest-service'
     version =  '0.1.0'
+    
+	//SOAPのための設定 jaxbで自動生成されたクラスを認識するためか。
+    from genJaxb.classesDir
 }
 
 //ビルド時のmaven repository
@@ -45,7 +90,11 @@ targetCompatibility = 1.8
 
 //dependency
 dependencies {
+    //rest
     compile("org.springframework.boot:spring-boot-starter-web")
+    //jaxwsサーバー。 ガイドにはない。
+    compile("org.springframework.boot:spring-boot-starter-web-services")
+    
     testCompile('org.springframework.boot:spring-boot-starter-test'){
         //juni4を除外
         exclude group: 'junit' , module: 'junit'
@@ -54,7 +103,15 @@ dependencies {
     //https://mike-neck.hatenadiary.com/entry/2018/03/02/073000
     testCompile ("org.junit.jupiter:junit-jupiter-api:5.1.0")
     testRuntime ("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+
+    //SOAP Consumer（サーバー）
+    //JAXBで生成されたクラスをパスに設定する。
+    //@see https://spring.io/guides/gs/producing-web-service/     
+    compile("wsdl4j:wsdl4j:1.6.1")
+    jaxb("org.glassfish.jaxb:jaxb-xjc:2.2.11")
+    compile(files(genJaxb.classesDir).builtBy(genJaxb))
     
+    //devtools
     developmentOnly("org.springframework.boot:spring-boot-devtools") //開発時のみ有効。
 }
 
