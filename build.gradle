@@ -118,7 +118,7 @@ dependencies {
     compile "io.springfox:springfox-swagger2:2.9.2"
     //spring fox swagger ui
     compile 'io.springfox:springfox-swagger-ui:2.9.2'
-    //sprinf fox bean validationとの連携
+    //spring fox bean validationとの連携
     compile "io.springfox:springfox-bean-validators:2.9.2"
 }
 
